@@ -229,3 +229,158 @@ transform:scale(1.08);
 transform:scale(.9);
 
 }
+/* 演出 */
+
+.fade{
+animation:fade .5s forwards;
+}
+
+.fadeOut{
+animation:fadeOut .5s forwards;
+}
+
+.flash{
+animation:flash .45s;
+}
+
+.slideGift{
+animation:slideGift .55s ease;
+}
+
+@keyframes fade{
+from{opacity:1;}
+to{opacity:0;}
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+transform:scale(.8);
+}
+}
+
+@keyframes flash{
+
+0%{
+transform:scale(1);
+filter:brightness(1);
+}
+
+40%{
+transform:scale(1.18);
+filter:brightness(2.4);
+}
+
+100%{
+transform:scale(1);
+filter:brightness(1);
+}
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:.2;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+@keyframes lantern{
+
+0%{
+transform:rotate(-5deg);
+}
+
+50%{
+transform:rotate(5deg);
+}
+
+100%{
+transform:rotate(-5deg);
+}
+
+}
+
+@keyframes titleGlow{
+
+0%,100%{
+
+text-shadow:
+0 0 10px orange,
+0 0 25px orange;
+
+}
+
+50%{
+
+text-shadow:
+0 0 20px yellow,
+0 0 45px orange;
+
+}
+
+}
+
+@keyframes slideGift{
+
+0%{
+opacity:0;
+transform:translateY(35px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="titleScreen">
+
+<h1>
+
+🏮 当てろ！<br>
+⅙お盆玉サバイバル！🏮
+
+</h1>
+
+<button id="startButton">
+
+ゲームスタート
+
+</button>
+
+</div>
+
+<div id="game">
+
+<div id="message">
+
+お盆玉を選ぼう！
+
+</div>
+
+<div id="choiceArea">
+
+<button class="colorBtn red"></button>
+
+<button class="colorBtn blue"></button>
+
+<button class="colorBtn green"></button>
+
+</div>
+
+</div>
+
+<script>
