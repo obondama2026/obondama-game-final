@@ -500,13 +500,23 @@ gifts.forEach(g=>g.disabled=true);
 
 if(index===correct){
 
-message.textContent="🎉 当たり！";
+gifts[index].classList.add("flash");
+
+gifts.forEach((g,i)=>{
+
+if(i!==index){
+
+g.classList.add("fadeOut");
+
+}
+
+});
 
 setTimeout(()=>{
 
 goToTwoChoice();
 
-},1200);
+},700);
 
 }else{
 
