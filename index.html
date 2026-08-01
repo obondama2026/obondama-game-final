@@ -515,8 +515,6 @@ g.classList.add("fadeOut");
 
 setTimeout(()=>{
 
-message.textContent="✨ 突破！";
-
 setTimeout(()=>{
 
 goToTwoChoice();
@@ -549,7 +547,25 @@ message.textContent="最後の挑戦！";
 setTimeout(()=>{
 
 countDown(3);
+function showFinalChoice(){
 
+const area=document.getElementById("choiceArea");
+
+area.innerHTML=`
+
+<button class="gift slideGift" id="gift0">🎁</button>
+
+<button class="gift slideGift" id="gift1">🎁</button>
+
+`;
+
+const answer=Math.floor(Math.random()*2);
+
+document.getElementById("gift0").onclick=()=>selectFinal(0,answer);
+
+document.getElementById("gift1").onclick=()=>selectFinal(1,answer);
+
+}
 },800);
 
 },700);
