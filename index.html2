@@ -446,51 +446,7 @@ btn.onclick=()=>selectGift(index);
 
 function selectGift(index){
 
-const btns=document.querySelectorAll(".colorBtn");
 
-btns[index].classList.add("selected");
-
-btns.forEach(b=>b.disabled=true);
-
-if(index===correct){
-
-    btns[index].classList.add("flash");
-
-    btns.forEach((b,i)=>{
-
-        if(i!==index){
-
-            b.classList.add("fadeOut");
-
-        }
-
-    });
-
-    setTimeout(()=>{
-
-        message.textContent="✨突破！✨";
-
-        setTimeout(()=>{
-
-            goToFinalChoice();
-
-        },800);
-
-    },900);
-
-}else{
-
-    setTimeout(()=>{
-
-        message.textContent="💥 ハズレ！";
-
-    },300);
-
-    setTimeout(backToTitle,1800);
-
-}
-
-}
 const btns=document.querySelectorAll(".colorBtn");
 
 btns[index].classList.add("selected");
