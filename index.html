@@ -270,6 +270,58 @@ text-shadow:
 
 }
 
+.colorBtn{
+
+width:120px;
+height:120px;
+
+border:none;
+border-radius:50%;
+
+cursor:pointer;
+
+transition:
+transform .08s,
+box-shadow .08s;
+
+box-shadow:
+0 10px 0 rgba(0,0,0,.35),
+0 18px 25px rgba(0,0,0,.4);
+
+}
+
+.red{
+
+background:
+linear-gradient(#ff6a6a,#d40000);
+
+}
+
+.blue{
+
+background:
+linear-gradient(#5fb8ff,#0066ff);
+
+}
+
+.green{
+
+background:
+linear-gradient(#7dff7d,#00aa22);
+
+}
+
+.colorBtn:active{
+
+transform:
+translateY(8px)
+scale(.97);
+
+box-shadow:
+0 2px 0 rgba(0,0,0,.35),
+0 6px 10px rgba(0,0,0,.35);
+
+}
 </style>
 
 </head>
