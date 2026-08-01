@@ -505,9 +505,17 @@ document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
 }
 function startFinalCountDown(choice,answer){
 
-document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
+const gifts=document.querySelectorAll(".gift");
+
+gifts[choice].classList.add("selected");
+
+gifts.forEach(g=>g.disabled=true);
+
+setTimeout(()=>{
 
 finalCountDown(3,choice,answer);
+
+},300);
 
 }
 
