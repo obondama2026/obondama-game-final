@@ -585,8 +585,8 @@ area.innerHTML=`
 
 const answer=Math.floor(Math.random()*2);
 
-document.getElementById("gift0").onclick=()=>selectFinal(0,answer);
-document.getElementById("gift1").onclick=()=>selectFinal(1,answer);
+document.getElementById("gift0").onclick=()=>startFinalCountDown(0,answer);
+document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
 },700);
 
 }
