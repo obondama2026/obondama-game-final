@@ -325,8 +325,6 @@ text-shadow:
 }
 
 }
-
-@keyframes slideGift{
 .selected{
 
 transform:scale(1.25);
@@ -338,8 +336,7 @@ box-shadow:
 filter:brightness(1.4);
 
 transition:.25s;
-
-}
+@keyframes slideGift{
 
 0%{
 opacity:0;
@@ -449,10 +446,6 @@ btn.onclick=()=>selectGift(index);
 function selectGift(index){
 setTimeout(()=>{
 
-message.textContent="✨突破！✨";
-
-setTimeout(()=>{
-
 goToFinalChoice();
 
 },800);
@@ -477,10 +470,15 @@ b.classList.add("fadeOut");
 }
 
 });
+setTimeout(()=>{
+
+message.textContent="✨突破！✨";
 
 setTimeout(()=>{
 
 goToFinalChoice();
+
+},800);
 
 },900);
 
@@ -585,7 +583,7 @@ message.textContent="💥 ハズレ！";
 
 setTimeout(()=>{
 
-alert("残念！また挑戦してね！");
+alert("また挑戦してね！");
 
 backToTitle();
 
