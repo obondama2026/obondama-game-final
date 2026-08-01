@@ -450,6 +450,8 @@ function selectGift(index){
 
 const btns=document.querySelectorAll(".colorBtn");
 
+btns[index].classList.add("selected");
+
 btns.forEach(b=>b.disabled=true);
 
 if(index===correct){
