@@ -488,3 +488,113 @@ document.getElementById("gift0").onclick=()=>startFinalCountDown(0,answer);
 document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
 
 }
+function startFinalCountDown(choice,answer){
+
+document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
+
+finalCountDown(3,choice,answer);
+
+}
+
+function finalCountDown(num,choice,answer){
+
+message.textContent=num;
+
+message.style.fontSize="90px";
+message.style.color="#ffd54f";
+message.style.textShadow="0 0 20px yellow";
+
+if(num>1){
+
+setTimeout(()=>{
+
+finalCountDown(num-1,choice,answer);
+
+},700);
+
+}else{
+
+setTimeout(()=>{
+
+selectFinal(choice,answer);
+
+},700);
+
+}
+
+}
+
+function selectFinal(choice,answer){
+
+message.style.fontSize="1.6rem";
+
+if(choice===answer){
+
+message.textContent="🎉 大当たり！！";
+
+setTimeout(()=>{
+
+alert("🎉おめでとう！大当たり！");
+
+backToTitle();
+
+},500);
+
+}else{
+
+message.textContent="💥 ハズレ！";
+
+setTimeout(()=>{
+
+alert("残念！また挑戦してね！");
+
+backToTitle();
+
+},500);
+
+}
+
+}
+
+function backToTitle(){
+
+game.style.display="none";
+
+titleScreen.style.display="flex";
+
+titleScreen.classList.remove("fade");
+
+}
+
+for(let i=0;i<80;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(star);
+
+}
+
+for(let i=0;i<6;i++){
+
+const lantern=document.createElement("div");
+
+lantern.className="lantern";
+
+lantern.innerHTML="🏮";
+
+lantern.style.left=(8+i*15)+"%";
+lantern.style.animationDelay=(i*0.2)+"s";
+
+document.body.appendChild(lantern);
+
+}
+</script>
+
+</body>
+</html>
