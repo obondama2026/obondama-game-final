@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -21,11 +20,9 @@ sans-serif;
 }
 
 html,body{
-
 width:100%;
 height:100%;
 overflow:hidden;
-
 }
 
 body{
@@ -38,7 +35,6 @@ linear-gradient(
 #02050d 100%);
 
 color:white;
-
 position:relative;
 
 }
@@ -46,74 +42,49 @@ position:relative;
 /* 星空 */
 
 .star{
-
 position:absolute;
-
 width:3px;
 height:3px;
-
 background:white;
-
 border-radius:50%;
-
-animation:
-twinkle 3s infinite;
-
+animation:twinkle 3s infinite;
 }
 
 /* 提灯 */
 
 .lantern{
-
 position:absolute;
-
 top:10px;
-
 font-size:38px;
-
-animation:
-lantern 2.8s ease-in-out infinite;
-
+animation:lantern 2.8s ease-in-out infinite;
 transform-origin:top center;
-
 }
 
 /* タイトル */
 
 #titleScreen{
-
 position:absolute;
-
 inset:0;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
-
 align-items:center;
-
 z-index:10;
-
 }
 
 h1{
 
-font-size:2.6rem;
-
+font-size:2.5rem;
 text-align:center;
 
 color:#ffd54f;
 
 text-shadow:
-
 0 0 10px orange,
 0 0 20px orange,
 0 0 40px yellow;
 
-animation:
-titleGlow 2s infinite;
+animation:titleGlow 2s infinite;
 
 }
 
@@ -121,9 +92,7 @@ titleGlow 2s infinite;
 
 margin-top:35px;
 
-padding:
-
-18px 45px;
+padding:18px 45px;
 
 font-size:1.3rem;
 
@@ -139,17 +108,13 @@ font-weight:bold;
 
 cursor:pointer;
 
-box-shadow:
-0 0 15px orange;
-
-transition:.12s;
+box-shadow:0 0 15px orange;
 
 }
 
-
 #startButton:active{
 
-transform:scale(.93);
+transform:scale(.94);
 
 }
 
@@ -170,17 +135,18 @@ align-items:center;
 flex-direction:column;
 
 }
-/* ゲーム画面 */
 
 #message{
 
-font-size:1.5rem;
+font-size:1.6rem;
 
 margin-bottom:30px;
 
 font-weight:bold;
 
-text-shadow:0 0 10px #fff;
+text-shadow:0 0 10px white;
+
+text-align:center;
 
 }
 
@@ -192,9 +158,55 @@ gap:30px;
 
 }
 
+/* 3択ボタン */
+
+.colorBtn{
+
+width:100px;
+height:100px;
+
+border:none;
+border-radius:50%;
+
+cursor:pointer;
+
+transition:.15s;
+
+box-shadow:
+0 10px 0 rgba(0,0,0,.35),
+0 18px 25px rgba(0,0,0,.4);
+
+}
+
+.red{
+background:linear-gradient(#ff6a6a,#d40000);
+}
+
+.blue{
+background:linear-gradient(#5fb8ff,#0066ff);
+}
+
+.green{
+background:linear-gradient(#7dff7d,#00aa22);
+}
+
+.colorBtn:active{
+
+transform:
+translateY(8px)
+scale(.96);
+
+box-shadow:
+0 2px 0 rgba(0,0,0,.35),
+0 6px 10px rgba(0,0,0,.35);
+
+}
+
+/* 2択 */
+
 .gift{
 
-font-size:70px;
+font-size:72px;
 
 background:none;
 
@@ -217,469 +229,3 @@ transform:scale(1.08);
 transform:scale(.9);
 
 }
-
-/* 演出 */
-
-.fade{
-
-animation:fade .5s forwards;
-
-}
-
-@keyframes fade{
-
-from{opacity:1;}
-
-to{opacity:0;}
-
-}
-
-@keyframes twinkle{
-
-0%,100%{opacity:.2;}
-
-50%{opacity:1;}
-
-}
-
-@keyframes lantern{
-
-0%{transform:rotate(-5deg);}
-
-50%{transform:rotate(5deg);}
-
-100%{transform:rotate(-5deg);}
-
-}
-
-@keyframes titleGlow{
-
-0%,100%{
-
-text-shadow:
-0 0 10px orange,
-0 0 25px orange;
-
-}
-
-50%{
-
-text-shadow:
-0 0 20px yellow,
-0 0 45px orange;
-
-}
-
-}
-
-.colorBtn{
-
-width:100px;
-height:100px;
-
-border:none;
-border-radius:50%;
-
-cursor:pointer;
-
-transition:
-transform .08s,
-box-shadow .08s;
-
-box-shadow:
-0 10px 0 rgba(0,0,0,.35),
-0 18px 25px rgba(0,0,0,.4);
-
-}
-
-.red{
-
-background:
-linear-gradient(#ff6a6a,#d40000);
-
-}
-
-.blue{
-
-background:
-linear-gradient(#5fb8ff,#0066ff);
-
-}
-
-.green{
-
-background:
-linear-gradient(#7dff7d,#00aa22);
-
-}
-
-.colorBtn:active{
-
-transform:
-translateY(8px)
-scale(.97);
-
-box-shadow:
-0 2px 0 rgba(0,0,0,.35),
-0 6px 10px rgba(0,0,0,.35);
-
-}
-.flash{
-
-animation:flash .45s;
-
-}
-
-@keyframes flash{
-
-0%{
-
-transform:scale(1);
-
-filter:brightness(1);
-
-}
-
-40%{
-
-transform:scale(1.18);
-
-filter:brightness(2.4);
-
-}
-
-100%{
-
-transform:scale(1);
-
-filter:brightness(1);
-
-}
-
-}
-
-.fadeOut{
-
-animation:fadeOut .5s forwards;
-
-}
-
-@keyframes fadeOut{
-
-to{
-
-opacity:0;
-
-transform:scale(.8);
-
-}
-
-}
-
-.slideGift{
-
-animation:slideGift .55s ease;
-
-}
-
-@keyframes slideGift{
-
-0%{
-
-opacity:0;
-
-transform:translateY(35px);
-
-}
-
-100%{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-</style>
-
-</head>
-
-<body>
-
-<div id="titleScreen">
-
-<h1>
-
-🏮 当てろ！<br>
-
-⅙お盆玉サバイバル！🏮
-
-</h1>
-
-<button id="startButton">
-
-ゲームスタート
-
-</button>
-
-</div>
-
-<div id="game">
-
-<div id="message">
-
-お盆玉を選ぼう！
-
-</div>
-
-<div id="choiceArea">
-
-<button class="colorBtn red"></button>
-
-<button class="colorBtn blue"></button>
-
-<button class="colorBtn green"></button>
-
-</div>
-
-</div>
-<script>
-
-const titleScreen =
-document.getElementById("titleScreen");
-
-const game =
-document.getElementById("game");
-
-const message =
-document.getElementById("message");
-
-const gifts =
-document.querySelectorAll(".colorBtn");
-
-let correct = 0;
-
-document
-.getElementById("startButton")
-.onclick = startGame;
-
-function startGame(){
-
-titleScreen.classList.add("fade");
-
-setTimeout(()=>{
-
-titleScreen.style.display="none";
-
-game.style.display="flex";
-
-resetThreeChoice();
-
-},500);
-
-}
-
-function resetThreeChoice(){
-
-message.textContent="お盆玉を選ぼう！";
-
-correct=Math.floor(Math.random()*3);
-
-gifts.forEach((gift,index)=>{
-
-gift.disabled=false;
-
-gift.onclick=()=>selectGift(index);
-
-});
-
-}
-
-function selectGift(index){
-
-gifts.forEach(g=>g.disabled=true);
-
-if(index===correct){
-
-gifts[index].classList.add("flash");
-
-gifts.forEach((g,i)=>{
-
-if(i!==index){
-
-g.classList.add("fadeOut");
-
-}
-
-});
-
-setTimeout(()=>{
-
-goToTwoChoice();
-
-},700);
-}else{
-
-message.textContent="💥 ハズレ！";
-
-setTimeout(()=>{
-
-backToTitle();
-
-},1800);
-
-}
-
-}
-
-function goToTwoChoice(){
-
-message.textContent="✨ 突破！";
-
-setTimeout(()=>{
-
-message.textContent="最後の挑戦！";
-
-setTimeout(()=>{
-countDown(3);
-
-},800);
-
-},700);
-
-}
-function goToTwoChoice(){
-
-message.textContent="✨ 突破！";
-
-setTimeout(()=>{
-
-message.textContent="最後の挑戦！";
-
-const area=document.getElementById("choiceArea");
-
-area.innerHTML=`
-<button class="gift slideGift" id="gift0">🎁</button>
-<button class="gift slideGift" id="gift1">🎁</button>
-`;
-
-const answer=Math.floor(Math.random()*2);
-
-document.getElementById("gift0").onclick=()=>startFinalCountDown(0,answer);
-document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
-
-},700);
-
-}
-
-}else{
-
-setTimeout(()=>{
-
-message.style.fontSize="1.5rem";
-
-message.style.color="white";
-
-message.textContent="🎁を選ぼう！";
-const area=document.getElementById("choiceArea");
-
-area.innerHTML=`
-<button class="gift slideGift" id="gift0">🎁</button>
-<button class="gift slideGift" id="gift1">🎁</button>
-`;
-
-const answer=Math.floor(Math.random()*2);
-
-document.getElementById("gift0").onclick=()=>startFinalCountDown(0,answer);
-document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
-},700);
-
-}
-
-}
-function startFinalCountDown(choice,answer){
-
-document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
-
-finalCountDown(3,choice,answer);
-
-}
-
-
-}else{
-
-setTimeout(()=>{
-
-selectFinal(choice,answer);
-
-},700);
-
-}
-
-}
-function selectFinal(choice,answer){
-
-document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
-
-if(choice===answer){
-
-message.textContent="✨ 正解！";
-
-alert("正解！");
-
-}else{
-
-message.textContent="💥 ハズレ！";
-
-alert("ハズレ！");
-
-}
-
-}
-
-function backToTitle(){
-
-game.style.display="none";
-
-titleScreen.style.display="flex";
-
-titleScreen.classList.remove("fade");
-
-}
-
-for(let i=0;i<80;i++){
-
-const star=document.createElement("div");
-
-star.className="star";
-
-star.style.left=Math.random()*100+"vw";
-star.style.top=Math.random()*100+"vh";
-
-star.style.animationDelay=Math.random()*3+"s";
-
-document.body.appendChild(star);
-
-}
-
-for(let i=0;i<6;i++){
-
-const lantern=document.createElement("div");
-
-lantern.className="lantern";
-
-lantern.innerHTML="🏮";
-
-lantern.style.left=(8+i*15)+"%";
-
-lantern.style.animationDelay=(i*0.2)+"s";
-
-document.body.appendChild(lantern);
-
-}
-
-</script>
-
-</body>
-</html>
