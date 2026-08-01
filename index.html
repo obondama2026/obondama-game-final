@@ -577,7 +577,17 @@ message.style.fontSize="1.5rem";
 message.style.color="white";
 
 message.textContent="🎁を選ぼう！";
+const area=document.getElementById("choiceArea");
 
+area.innerHTML=`
+<button class="gift slideGift" id="gift0">🎁</button>
+<button class="gift slideGift" id="gift1">🎁</button>
+`;
+
+const answer=Math.floor(Math.random()*2);
+
+document.getElementById("gift0").onclick=()=>selectFinal(0,answer);
+document.getElementById("gift1").onclick=()=>selectFinal(1,answer);
 },700);
 
 }
