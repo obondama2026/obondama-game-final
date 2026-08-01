@@ -537,25 +537,22 @@ backToTitle();
 }
 
 }
+
 function goToTwoChoice(){
+
+message.textContent="✨ 突破！";
+
+setTimeout(()=>{
 
 message.textContent="最後の挑戦！";
 
-const area=document.getElementById("choiceArea");
+setTimeout(()=>{
 
-area.innerHTML=`
+countDown(3);
 
-<button class="gift slideGift" id="gift0">🎁</button>
+},800);
 
-<button class="gift slideGift" id="gift1">🎁</button>
-
-`;
-
-const answer=Math.floor(Math.random()*2);
-
-document.getElementById("gift0").onclick=()=>selectFinal(0,answer);
-
-document.getElementById("gift1").onclick=()=>selectFinal(1,answer);
+},700);
 
 }
 function selectFinal(choice,answer){
