@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>当てろ！⅙お盆玉サバイバル！</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:
+"Yu Gothic",
+"Hiragino Sans",
+sans-serif;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+body{
+
+background:
+linear-gradient(
+180deg,
+#13284b 0%,
+#071221 55%,
+#02050d 100%);
+
+color:white;
+position:relative;
+
+}
+
+/* 星空 */
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+}
+
+/* 提灯 */
+
+.lantern{
+position:absolute;
+top:10px;
+font-size:38px;
+animation:lantern 2.8s ease-in-out infinite;
+transform-origin:top center;
+}
+
+/* タイトル */
+
+#titleScreen{
+position:absolute;
+inset:0;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+h1{
+
+font-size:2.5rem;
+text-align:center;
+
+color:#ffd54f;
+
+text-shadow:
+0 0 10px orange,
+0 0 20px orange,
+0 0 40px yellow;
+
+animation:titleGlow 2s infinite;
+
+}
+
+#startButton{
+
+margin-top:35px;
+
+padding:18px 45px;
+
+font-size:1.3rem;
+
+border:none;
+
+border-radius:16px;
+
+background:#ff9800;
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 15px orange;
+
+}
+
+#startButton:active{
+
+transform:scale(.94);
+
+}
+
+/* ゲーム画面 */
+
+#game{
+
+display:none;
+
+position:absolute;
+
+inset:0;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
+#message{
+
+font-size:1.6rem;
+
+margin-bottom:30px;
+
+font-weight:bold;
+
+text-shadow:0 0 10px white;
+
+text-align:center;
+
+}
+
+#choiceArea{
+
+display:flex;
+
+gap:30px;
+
+}
+
+/* 3択ボタン */
+
+.colorBtn{
+
+width:100px;
+height:100px;
+
+border:none;
+border-radius:50%;
+
+cursor:pointer;
+
+transition:.15s;
+
+box-shadow:
+0 10px 0 rgba(0,0,0,.35),
+0 18px 25px rgba(0,0,0,.4);
+
+}
+
+.red{
+background:linear-gradient(#ff6a6a,#d40000);
+}
+
+.blue{
+background:linear-gradient(#5fb8ff,#0066ff);
+}
+
+.green{
+background:linear-gradient(#7dff7d,#00aa22);
+}
+
+.colorBtn:active{
+
+transform:
+translateY(8px)
+scale(.96);
+
+box-shadow:
+0 2px 0 rgba(0,0,0,.35),
+0 6px 10px rgba(0,0,0,.35);
+
+}
+
+/* 2択 */
+
+.gift{
+
+font-size:72px;
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.gift:hover{
+
+transform:scale(1.08);
+
+}
+
+.gift:active{
+
+transform:scale(.9);
+
+}
+/* 演出 */
+
+.fade{
+animation:fade .5s forwards;
+}
+
+.fadeOut{
+animation:fadeOut .5s forwards;
+}
+
+.flash{
+animation:flash .45s;
+}
+
+.slideGift{
+animation:slideGift .55s ease;
+}
+
+@keyframes fade{
+from{opacity:1;}
+to{opacity:0;}
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+transform:scale(.8);
+}
+}
+
+@keyframes flash{
+
+0%{
+transform:scale(1);
+filter:brightness(1);
+}
+
+40%{
+transform:scale(1.18);
+filter:brightness(2.4);
+}
+
+100%{
+transform:scale(1);
+filter:brightness(1);
+}
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:.2;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+@keyframes lantern{
+
+0%{
+transform:rotate(-5deg);
+}
+
+50%{
+transform:rotate(5deg);
+}
+
+100%{
+transform:rotate(-5deg);
+}
+
+}
+
+@keyframes titleGlow{
+
+0%,100%{
+
+text-shadow:
+0 0 10px orange,
+0 0 25px orange;
+
+}
+
+50%{
+
+text-shadow:
+0 0 20px yellow,
+0 0 45px orange;
+
+}
+
+}
+
+@keyframes slideGift{
+
+0%{
+opacity:0;
+transform:translateY(35px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="titleScreen">
+
+<h1>
+
+🏮 当てろ！<br>
+⅙お盆玉サバイバル！🏮
+
+</h1>
+
+<button id="startButton">
+
+ゲームスタート
+
+</button>
+
+</div>
+
+<div id="game">
+
+<div id="message">
+
+お盆玉を選ぼう！
+
+</div>
+
+<div id="choiceArea">
+
+<button class="colorBtn red"></button>
+
+<button class="colorBtn blue"></button>
+
+<button class="colorBtn green"></button>
+
+</div>
+
+</div>
+
+<script>
+const titleScreen = document.getElementById("titleScreen");
+const game = document.getElementById("game");
+const message = document.getElementById("message");
+const choiceArea = document.getElementById("choiceArea");
+
+const gifts = document.querySelectorAll(".colorBtn");
+
+let correct = 0;
+
+document.getElementById("startButton").onclick = startGame;
+
+function startGame(){
+
+titleScreen.classList.add("fade");
+
+setTimeout(()=>{
+
+titleScreen.style.display="none";
+
+game.style.display="flex";
+
+resetThreeChoice();
+
+},500);
+
+}
+
+function resetThreeChoice(){
+
+message.textContent="お盆玉を選ぼう！";
+
+choiceArea.innerHTML=`
+<button class="colorBtn red"></button>
+<button class="colorBtn blue"></button>
+<button class="colorBtn green"></button>
+`;
+
+const btns=document.querySelectorAll(".colorBtn");
+
+correct=Math.floor(Math.random()*3);
+
+btns.forEach((btn,index)=>{
+
+btn.onclick=()=>selectGift(index);
+
+});
+
+}
+
+function selectGift(index){
+
+const btns=document.querySelectorAll(".colorBtn");
+
+btns.forEach(b=>b.disabled=true);
+
+if(index===correct){
+
+btns[index].classList.add("flash");
+
+btns.forEach((b,i)=>{
+
+if(i!==index){
+
+b.classList.add("fadeOut");
+
+}
+
+});
+
+setTimeout(()=>{
+
+goToFinalChoice();
+
+},700);
+
+}else{
+
+message.textContent="💥 ハズレ！";
+
+setTimeout(backToTitle,1800);
+
+}
+
+}
+
+function goToFinalChoice(){
+
+message.textContent="最後の挑戦！";
+
+choiceArea.innerHTML=`
+
+<button class="gift slideGift" id="gift0">🎁</button>
+
+<button class="gift slideGift" id="gift1">🎁</button>
+
+`;
+
+const answer=Math.floor(Math.random()*2);
+
+document.getElementById("gift0").onclick=()=>startFinalCountDown(0,answer);
+
+document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
+
+}
+function startFinalCountDown(choice,answer){
+
+document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
+
+finalCountDown(3,choice,answer);
+
+}
+
+function finalCountDown(num,choice,answer){
+
+message.textContent=num;
+
+message.style.fontSize="90px";
+message.style.color="#ffd54f";
+message.style.textShadow="0 0 20px yellow";
+
+if(num>1){
+
+setTimeout(()=>{
+
+finalCountDown(num-1,choice,answer);
+
+},700);
+
+}else{
+
+setTimeout(()=>{
+
+selectFinal(choice,answer);
+
+},700);
+
+}
+
+}
+
+function selectFinal(choice,answer){
+
+message.style.fontSize="1.6rem";
+
+if(choice===answer){
+
+message.textContent="🎉 大当たり！！";
+
+setTimeout(()=>{
+
+alert("🎉おめでとう！大当たり！");
+
+backToTitle();
+
+},500);
+
+}else{
+
+message.textContent="💥 ハズレ！";
+
+setTimeout(()=>{
+
+alert("残念！また挑戦してね！");
+
+backToTitle();
+
+},500);
+
+}
+
+}
+
+function backToTitle(){
+
+game.style.display="none";
+
+titleScreen.style.display="flex";
+
+titleScreen.classList.remove("fade");
+
+}
+
+for(let i=0;i<80;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(star);
+
+}
+
+for(let i=0;i<6;i++){
+
+const lantern=document.createElement("div");
+
+lantern.className="lantern";
+
+lantern.innerHTML="🏮";
+
+lantern.style.left=(8+i*15)+"%";
+lantern.style.animationDelay=(i*0.2)+"s";
+
+document.body.appendChild(lantern);
+
+}
+</script>
+
+</body>
+</html>
