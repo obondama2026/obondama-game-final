@@ -413,7 +413,7 @@ resetThreeChoice();
 
 function resetThreeChoice(){
 
-message.textContent="お盆玉を選ぼう！";
+message.textContent = "どれかひとつ選んでね！";
 
 choiceArea.innerHTML=`
 <button class="colorBtn red"></button>
