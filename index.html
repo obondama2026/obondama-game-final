@@ -515,10 +515,15 @@ g.classList.add("fadeOut");
 
 setTimeout(()=>{
 
+message.textContent="✨ 突破！";
+
+setTimeout(()=>{
+
 goToTwoChoice();
 
 },700);
 
+},700);
 }else{
 
 message.textContent="💥 ハズレ！";
@@ -561,9 +566,13 @@ if(choice===answer){
 
 message.textContent="✨ 正解！";
 
+alert("正解！");
+
 }else{
 
 message.textContent="💥 ハズレ！";
+
+alert("ハズレ！");
 
 }
 
