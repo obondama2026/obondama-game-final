@@ -534,13 +534,38 @@ backToTitle();
 }
 function goToTwoChoice(){
 
-document.getElementById("choiceArea").innerHTML=`
+message.textContent="最後の挑戦！";
 
-<button class="gift slideGift">🎁</button>
+const area=document.getElementById("choiceArea");
 
-<button class="gift slideGift">🎁</button>
+area.innerHTML=`
+
+<button class="gift slideGift" id="gift0">🎁</button>
+
+<button class="gift slideGift" id="gift1">🎁</button>
 
 `;
+
+const answer=Math.floor(Math.random()*2);
+
+document.getElementById("gift0").onclick=()=>selectFinal(0,answer);
+
+document.getElementById("gift1").onclick=()=>selectFinal(1,answer);
+
+}
+function selectFinal(choice,answer){
+
+document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
+
+if(choice===answer){
+
+message.textContent="✨ 正解！";
+
+}else{
+
+message.textContent="💥 ハズレ！";
+
+}
 
 }
 
