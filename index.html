@@ -384,3 +384,107 @@ transform:translateY(0);
 </div>
 
 <script>
+const titleScreen = document.getElementById("titleScreen");
+const game = document.getElementById("game");
+const message = document.getElementById("message");
+const choiceArea = document.getElementById("choiceArea");
+
+const gifts = document.querySelectorAll(".colorBtn");
+
+let correct = 0;
+
+document.getElementById("startButton").onclick = startGame;
+
+function startGame(){
+
+titleScreen.classList.add("fade");
+
+setTimeout(()=>{
+
+titleScreen.style.display="none";
+
+game.style.display="flex";
+
+resetThreeChoice();
+
+},500);
+
+}
+
+function resetThreeChoice(){
+
+message.textContent="お盆玉を選ぼう！";
+
+choiceArea.innerHTML=`
+<button class="colorBtn red"></button>
+<button class="colorBtn blue"></button>
+<button class="colorBtn green"></button>
+`;
+
+const btns=document.querySelectorAll(".colorBtn");
+
+correct=Math.floor(Math.random()*3);
+
+btns.forEach((btn,index)=>{
+
+btn.onclick=()=>selectGift(index);
+
+});
+
+}
+
+function selectGift(index){
+
+const btns=document.querySelectorAll(".colorBtn");
+
+btns.forEach(b=>b.disabled=true);
+
+if(index===correct){
+
+btns[index].classList.add("flash");
+
+btns.forEach((b,i)=>{
+
+if(i!==index){
+
+b.classList.add("fadeOut");
+
+}
+
+});
+
+setTimeout(()=>{
+
+goToFinalChoice();
+
+},700);
+
+}else{
+
+message.textContent="💥 ハズレ！";
+
+setTimeout(backToTitle,1800);
+
+}
+
+}
+
+function goToFinalChoice(){
+
+message.textContent="最後の挑戦！";
+
+choiceArea.innerHTML=`
+
+<button class="gift slideGift" id="gift0">🎁</button>
+
+<button class="gift slideGift" id="gift1">🎁</button>
+
+`;
+
+const answer=Math.floor(Math.random()*2);
+
+document.getElementById("gift0").onclick=()=>startFinalCountDown(0,answer);
+
+document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
+
+}
