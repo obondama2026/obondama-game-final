@@ -555,6 +555,41 @@ countDown(3);
 },700);
 
 }
+function countDown(num){
+
+message.textContent=num;
+
+message.style.fontSize="90px";
+
+message.style.color="#ffd54f";
+
+message.style.textShadow="0 0 20px yellow";
+
+if(num>1){
+
+setTimeout(()=>{
+
+countDown(num-1);
+
+},700);
+
+}else{
+
+setTimeout(()=>{
+
+message.style.fontSize="1.5rem";
+
+message.style.color="white";
+
+message.textContent="🎁を選ぼう！";
+
+showFinalChoice();
+
+},700);
+
+}
+
+}
 function selectFinal(choice,answer){
 
 document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
