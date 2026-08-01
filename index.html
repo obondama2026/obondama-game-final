@@ -592,6 +592,40 @@ document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
 }
 
 }
+function startFinalCountDown(choice,answer){
+
+document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
+
+finalCountDown(3,choice,answer);
+
+}
+
+function finalCountDown(num,choice,answer){
+
+message.textContent=num;
+
+message.style.fontSize="90px";
+message.style.color="#ffd54f";
+
+if(num>1){
+
+setTimeout(()=>{
+
+finalCountDown(num-1,choice,answer);
+
+},700);
+
+}else{
+
+setTimeout(()=>{
+
+selectFinal(choice,answer);
+
+},700);
+
+}
+
+}
 function selectFinal(choice,answer){
 
 document.querySelectorAll(".gift").forEach(g=>g.disabled=true);
