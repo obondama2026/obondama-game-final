@@ -361,7 +361,15 @@ transform:translateY(0);
 }
 
 }
-
+.selected{
+    transform:scale(1.22);
+    filter:brightness(1.6);
+    box-shadow:
+        0 0 20px #fff,
+        0 0 40px gold,
+        0 0 60px orange;
+    transition:.25s;
+}
 </style>
 
 </head>
@@ -457,29 +465,19 @@ btn.onclick=()=>selectGift(index);
 
 function selectGift(index){
 
-
 const btns=document.querySelectorAll(".colorBtn");
-
-btns[index].classList.add("selected");
 
 btns.forEach(b=>b.disabled=true);
 
-if(index===correct){
-
-btns[index].classList.add("flash");
-
-btns.forEach((b,i)=>{
-
-if(i!==index){
-
-b.classList.add("fadeOut");
+btns[index].classList.add("selected");
 
 }
 
 });
 setTimeout(()=>{
 
-message.textContent="✨突破！✨";
+message.innerHTML="✨<br>突破！！";
+message.style.fontSize="2.4rem";
 
 setTimeout(()=>{
 
@@ -495,7 +493,8 @@ btns[index].classList.add("selected");
 
 setTimeout(()=>{
 
-message.textContent="💥 ハズレ！";
+message.innerHTML="💥<br>ハズレ...";
+message.style.fontSize="2.2rem";
 
 },300);
 
@@ -525,6 +524,7 @@ document.getElementById("gift1").onclick=()=>startFinalCountDown(1,answer);
 
 }
 function startFinalCountDown(choice,answer){
+    
 
 const gifts=document.querySelectorAll(".gift");
 
