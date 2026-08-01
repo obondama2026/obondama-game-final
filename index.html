@@ -322,6 +322,83 @@ box-shadow:
 0 6px 10px rgba(0,0,0,.35);
 
 }
+.flash{
+
+animation:flash .45s;
+
+}
+
+@keyframes flash{
+
+0%{
+
+transform:scale(1);
+
+filter:brightness(1);
+
+}
+
+40%{
+
+transform:scale(1.18);
+
+filter:brightness(2.4);
+
+}
+
+100%{
+
+transform:scale(1);
+
+filter:brightness(1);
+
+}
+
+}
+
+.fadeOut{
+
+animation:fadeOut .5s forwards;
+
+}
+
+@keyframes fadeOut{
+
+to{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+}
+
+.slideGift{
+
+animation:slideGift .55s ease;
+
+}
+
+@keyframes slideGift{
+
+0%{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
 </style>
 
 </head>
