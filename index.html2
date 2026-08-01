@@ -327,6 +327,19 @@ text-shadow:
 }
 
 @keyframes slideGift{
+.selected{
+
+transform:scale(1.25);
+
+box-shadow:
+0 0 30px yellow,
+0 0 60px orange;
+
+filter:brightness(1.4);
+
+transition:.25s;
+
+}
 
 0%{
 opacity:0;
